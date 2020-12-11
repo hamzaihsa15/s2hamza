@@ -1,0 +1,28 @@
+extends ../layout
+
+block content 
+    .row
+        .col-sm-8
+            h1=title
+            br
+        .col-sm-4
+            a(href="courses/add", class="btn btn-success float-right") New Courses
+    table.table
+        thead
+            tr
+                th Course Name
+                th Course ID
+                th Course Duration
+                th Course Fee
+                th Operations
+        tbody
+            each course in courses
+                
+                tr
+                    td=course.course_name
+                    td=course.course_id
+                    td=course.course_duration
+                    td=course.course_fee
+                    td
+                        a(href="/courses/edit/"+course._id, class="btn btn-warning mr-1") Edit
+                        a(href="/courses/delete/"+course._id, class="btn btn-danger ") Delete
